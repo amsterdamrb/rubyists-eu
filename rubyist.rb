@@ -36,7 +36,11 @@ get '/login/complete' do
     return 'wat'
   end
 
-  oid_response = session[:oid].complete( params, request.script_name + '/login/complete')
+  oid_response = session[:oid].complete( params, request.url )
+  if oid_response.status != :success
+    return 'you are doing something wrong'
+  end
+
   if session[:openid] = oid_response.identity_url
     'You have successfully logged in as ' + session[:openid]
   else

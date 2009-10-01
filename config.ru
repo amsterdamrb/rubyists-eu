@@ -1,2 +1,2 @@
-require 'rubyist'
+require 'application'
 run Sinatra::Application

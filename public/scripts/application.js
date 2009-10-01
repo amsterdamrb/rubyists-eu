@@ -26,7 +26,7 @@ function findAddress(address, callback) {
 function initialize() {
   if (GBrowserIsCompatible()) {
     map = new GMap2(document.getElementById("map"));
-    map.setCenter(new GLatLng(51.8, 14.5), 4);
+    map.setCenter(new GLatLng(58.768, 7.119), 4);
     var mapControl = new GLargeMapControl();
     map.addControl(mapControl);
     geocoder = new GClientGeocoder();

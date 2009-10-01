@@ -2,6 +2,10 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 
+configure do
+  set :views, "#{File.dirname(__FILE__)}/views"
+end
+
 get '/' do
   haml :home
 end

@@ -29,11 +29,11 @@ get '/login' do
 end
 
 post '/login' do
-  session[:oid] = OpenID::Consumer.new(
+  session[:openid_consumer] = OpenID::Consumer.new(
     session,
     OpenID::Store::Filesystem.new( '/tmp/openid' )
   )
-  oid_response = session[:oid].begin params['openid_url']
+  oid_response = session[:openid_consumer].begin params['openid_url']
   if oid_response
     redirect oid_response.redirect_url(request.url, request.url + '/complete')
   else
@@ -42,25 +42,26 @@ post '/login' do
 end
 
 get '/login/complete' do
-  if session[:openid]
+  if session[:openid_identity]
     return 'wat'
   end
 
-  oid_response = session[:oid].complete( params, request.url )
+  oid_response = session[:openid_consumer].complete( params, request.url )
   if oid_response.status != :success
     return 'you are doing something wrong'
   end
 
-  if session[:openid] = oid_response.identity_url
-    'You have successfully logged in as ' + session[:openid]
+  if session[:openid_identity] = oid_response.identity_url
+    session.delete :openid_consumer
+    'You have successfully logged in as ' + session[:openid_identity]
   else
     'please <a href="/login">Log In</a>'
   end
 end
 
 get '/logout' do
-  if session[:openid]
-    session.delete :openid
+  if session[:openid_identity]
+    session.delete :openid_identity
     'You have been logged out'
   else
     'You are already logged out'

@@ -13,7 +13,7 @@ get '/' do
   haml :home
 end
 
-get '/public/styles/:file' do
+get '/styles/:file' do
   response["Content-Type"] = "text/css; charset=utf-8"
   file = params[:file][0, params[:file].size - 4]
   

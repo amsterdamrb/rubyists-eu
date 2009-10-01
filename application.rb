@@ -21,8 +21,8 @@ get '/styles/:file' do
 end
 
 get '/login' do
-  if session[:openid]
-    return 'You are already logged in as '+session[:openid]+', you might want to <a href="/logout">Log Out</a>'
+  if session[:openid_identity]
+    return 'You are already logged in as '+session[:openid_identity]+', you might want to <a href="/logout">Log Out</a>'
   end
 
   haml :login
@@ -69,7 +69,7 @@ get '/logout' do
 end
 
 get '/check' do
-  if session[:openid]
+  if session[:openid_identity]
     "you are logged in"
   else
     "please log in"

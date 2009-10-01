@@ -1,23 +1,13 @@
 require 'sinatra'
 require 'haml'
-require 'sass'
 require 'openid'
 require 'openid/store/filesystem'
 
-configure do
-  set :views, "#{File.dirname(__FILE__)}/views"
-  set :sessions, true
-end
+set :views, File.join(File.dirname(__FILE__), 'haml')
+set :sessions, true
 
 get '/' do
-  haml :home
-end
-
-get '/public/styles/:file' do
-  response["Content-Type"] = "text/css; charset=utf-8"
-  file = params[:file][0, params[:file].size - 4]
-  
-  sass file.to_sym, :views => File.join(File.dirname(__FILE__), 'public', 'styles')
+  haml :gmaps
 end
 
 get '/login' do

@@ -30,7 +30,6 @@ function initialize() {
     var mapControl = new GLargeMapControl();
     map.addControl(mapControl);
     geocoder = new GClientGeocoder();
-    seedMap();
   }
 }
 
@@ -44,13 +43,18 @@ function placeMarker(point, text) {
   return marker;
 }
 
-function seedMap() {
-  each(["Amsterdam", "Berlin", "Paris", "Madrid", "Den Haag", "Utrecht", "Groningen", "Rome"], function(city) {
-    findAddress(city, function(point) {
-      placeMarker(point, city);
-    });
-  })
+function tag(name, content) {
+  return "<" + name + ">" + content + "</" + name + ">"
 }
+
+function addUserGroupMarker(name, city, country) {
+  var name = name;
+  var address = city + ", " + country
+  findAddress(address, function(point) {
+    html = tag('h3', name) + tag('p', address)
+    placeMarker(point, html);
+  })
+} 
 
 function showAddress(address) {
   var address = address;

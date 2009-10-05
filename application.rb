@@ -29,7 +29,7 @@ end
 DataMapper.auto_migrate!
 
 get '/' do
-  unless Member.all.count > 0 then
+  unless Member.all.size > 0 then
     member = Member.new
   
     member.openid = "Hola"
@@ -39,7 +39,7 @@ get '/' do
   
     member.save!
   else
-    p Member.all.count
+    p Member.all.size
   end
   
   haml :home

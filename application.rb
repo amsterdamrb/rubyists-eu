@@ -3,13 +3,45 @@ require 'haml'
 require 'sass'
 require 'openid'
 require 'openid/store/filesystem'
+require 'dm-core'
 
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
   set :sessions, true
 end
 
+DataMapper.setup :default, {:adapter => 'postgres', 
+                            :database => 'rubyists', 
+                            :username => 'postgres', 
+                            :password => 'postgres', 
+                            :host => 'localhost'}
+
+class Member
+  include DataMapper::Resource
+  
+  property :id, Serial
+  property :openid, String
+  property :name, String
+  property :city, String
+  property :country, String
+end
+
+DataMapper.auto_migrate!
+
 get '/' do
+  unless Member.all.count > 0 then
+    member = Member.new
+  
+    member.openid = "Hola"
+    member.name = "Javier Cicchelli"
+    member.city = "Buenos Aires"
+    member.country = "Argentina"
+  
+    member.save!
+  else
+    p Member.all.count
+  end
+  
   haml :home
 end
 

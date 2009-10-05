@@ -37,7 +37,7 @@ get '/' do
     member.city = "Buenos Aires"
     member.country = "Argentina"
   
-    member.save!
+    member.save
   else
     p Member.all.size
   end

@@ -10,11 +10,7 @@ configure do
   set :sessions, true
 end
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || {:adapter => 'postgres',
-                            :database => 'rubyists',
-                            :username => 'postgres',
-                            :password => 'postgres',
-                            :host => 'localhost'})
+DataMapper.setup(:default, ENV['DATABASE_URL'])
 
 class Member
   include DataMapper::Resource

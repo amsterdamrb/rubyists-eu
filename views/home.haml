@@ -15,5 +15,15 @@
     %a{ :href => '/logout' } Log out
 #map
 #content
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %p Europe has a lot of local Ruby user groups, but you can't easily find them unless you know what you are looking for.
+  %p This also means that when you organize an interesting event somewhere, there is no easy way to get it under the attention of Europe's Rubyists.
+  %p As a Ruby user groups, you can use Rubyists.eu to become more visible and attract new members. You can put your user group on the map, share your regular meetups and special events. You can proudly announce the projects you work on.
+  %p As a Rubyist, you can use Rubyists.eu to find a Ruby user group close to your home.
+:javascript
+  $(document).ready(function(){
+    $.getJSON("/ajax/user_groups.js", function(data){
+      each(data, function(user_group) {
+        addUserGroupMarker(user_group['name'], user_group['city'], user_group['country']);
+      })
+    })
+  })

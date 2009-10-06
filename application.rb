@@ -20,14 +20,6 @@ get '/styles/:file' do
   sass file.to_sym, :views => File.join(File.dirname(__FILE__), 'public', 'styles')
 end
 
-get '/login' do
-  if session[:openid_identity]
-    return 'You are already logged in as '+session[:openid_identity]+', you might want to <a href="/logout">Log Out</a>'
-  end
-
-  haml :login
-end
-
 post '/login' do
   session[:openid_consumer] = OpenID::Consumer.new(
     session,
@@ -48,12 +40,13 @@ get '/login/complete' do
 
   oid_response = session[:openid_consumer].complete( params, request.url )
   if oid_response.status != :success
-    return 'you are doing something wrong'
+    return 'You are not logged in, your OpenID login failed or you refused to login'
   end
 
   if session[:openid_identity] = oid_response.identity_url
     session.delete :openid_consumer
     'You have successfully logged in as ' + session[:openid_identity]
+    redirect '/' # XXX
   else
     'please <a href="/login">Log In</a>'
   end
@@ -63,8 +56,9 @@ get '/logout' do
   if session[:openid_identity]
     session.delete :openid_identity
     'You have been logged out'
+    redirect '/' # XXX
   else
-    'You are already logged out'
+    'You were already logged out'
   end
 end
 

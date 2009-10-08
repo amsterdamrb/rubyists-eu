@@ -4,7 +4,7 @@
   %input{:type=>'text', :name=>'address'}
   %input{:type=>'submit', :value=>'Search'}
 - if ! session[:openid_identity]
-  %form{ :id => 'login' :name => 'login_openid', :action => '/login', :method => 'POST' }
+  %form{:id => 'login', :name => 'login_openid', :action => '/login', :method => 'POST' }
     Log in with your OpenID
     %br
     %input{ :id => 'openid_identifier', :class => 'openid_url_input', :type => 'text', :name => 'openid_url' }

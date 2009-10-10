@@ -7,11 +7,9 @@ DataMapper.setup :default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres
 class Country
   include DataMapper::Resource
   
-  property :code, String, :key => true, :length => 2
-  property :name, String
+  property :code, String, :length => 2, :format => /^[A-Z]{2}$/, :key => true
+  property :name, String, :nullable => false
 
-  validates_is_unique :code
-  
   class << self
     def populate
       File.open("#{Dir.pwd}/data/countries.csv", File::RDONLY).each_line do |row|

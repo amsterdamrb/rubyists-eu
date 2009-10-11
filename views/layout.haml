@@ -1,8 +1,17 @@
 %html
   %head
+    %meta{:name => 'description', :content => 'Rubyists.eu is the place where European Rubyists and Communities come together!'}
+    %meta{:name => 'keywords', :content => 'Ruby, RUG, Europe, Rubyists, communities, information sharing, experience exchange, projects, collaboration, meet-ups, events, networking, integration'}
+    %meta{:name => 'author', :content => 'Rock & Code, Narnach, Fernando Vezzosi'}
+    -#%meta{:name => 'reply-to', :content => 'info@rubyists.eu'}
+    -#%meta{:name => 'copyright', :content => 'copyright © 2009 All right reserved.'}
+    -#%meta{:name => 'date', :content => ''}
+    %meta{:name => 'robots', :content => 'Index, Follow'}
+    %meta{:"http-equiv" => 'Content-Type', :content => 'text/html; charset=utf-8'}
     %title Rubyists in Europe
     %link{:type => 'text/css', :href => '/styles/application.css', :rel => 'stylesheet'}
-    %script{:type=>'text/javascript', :src => "http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAd7pNuaDUM-lL38n-vArNXBTKvB2o_yGHqu2y3lJ29VG-9vSfqBQdfHDwgBRkug272RJOOWiCV27uNg"}
+    - google_maps_key = "ABQIAAAAd7pNuaDUM-lL38n-vArNXBTKvB2o_yGHqu2y3lJ29VG-9vSfqBQdfHDwgBRkug272RJOOWiCV27uNg"
+    %script{:type=>'text/javascript', :src => "http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=#{google_maps_key}"}
     %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'}
     %script{:type => 'text/javascript', :src => '/scripts/application.js'}
   %body{:onload=>'initialize()'}

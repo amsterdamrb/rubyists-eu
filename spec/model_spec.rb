@@ -1,8 +1,8 @@
 require File.join(File.dirname(__FILE__), 'spec_helper')
 
 PATTERN_COUNTRY_CODE = /^[A-Z]{2}$/
-PATTERN_EMAIL = /^(?:[\w\-]+)(\.[\w\-]+)*@([\w\-]+)(\.[\w\-\.]+)*(\.[a-z]{2,4})$/i
-PATTERN_NAME = /^([A-Z]([a-z\.\-]* ?)+)+$/
+PATTERN_EMAIL = /^(?:[a-z]+)(\.[\w\-]+)*@([\w\-]+)(\.[\w\-\.]+)*(\.[a-z]{2,4})$/i
+PATTERN_NAME = /^([A-Z][a-z\.\-]*\s?)+$/
 
 describe Country do
   context "when the data model have been just defined" do
@@ -144,7 +144,7 @@ describe User do
         unless user[:email].nil?
           test_user.email.should be_an_instance_of(String)
           (user[:email] =~ PATTERN_EMAIL).nil? ? test_user.email.should_not =~ PATTERN_EMAIL :
-                                                 test_user.email.should_not =~ PATTERN_EMAIL
+                                                 test_user.email.should =~ PATTERN_EMAIL
         end
         
         unless user[:city].nil?
@@ -160,7 +160,7 @@ describe User do
         end
         
         test_user.save
-
+        
         User.all.should be_empty
       end
     end

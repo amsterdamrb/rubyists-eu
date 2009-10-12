@@ -1,0 +1,23 @@
+= Rubyists.eu
+
+With http://rubyists.eu we aim to make all the Ruby User Groups in Europe visible using Google Maps and a simple Sinatra project. We want to know about all the meetups and events that happen on our continent, because we think we are missing out on way too much fun.
+
+The project is hosted by Heroku.
+
+== How to get involved
+
+* Fork the repo: http://github.com/rubyists-eu/rubyists-eu
+* Write & commit a feature (see the issue tracker for inspiration)
+* Write about your feature on the issue tracker
+* Send a pull request for extra attention!
+
+== Todo
+
+See the issue tracker http://github.com/rubyists-eu/rubyists-eu/issues
+
+== Contributors
+
+* Julio Javier Cicchelli [http://github.com/mr-rock]
+* Wes Oldenbeuving [http://github.com/Narnach]
+* Fernando Vezzosi [http://github.com/bucciarati]
+

@@ -13,7 +13,7 @@ The project is hosted by Heroku.
 
 == Dependencies
 
-Check http://installed-gems.heroku.com/ for a list of gems that are installed on Heroku by default. We use the following gems:
+Check http://installed-gems.heroku.com for a list of gems that are installed on Heroku by default. We use the following gems:
 
 * sinatra 0.9.4
 * haml 2.2.3

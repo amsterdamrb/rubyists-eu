@@ -8,6 +8,10 @@ require 'openid/store/filesystem'
 require 'json'
 require 'rubyists'
 
+DataMapper.setup :default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists")
+DataMapper.auto_migrate!
+Country.populate
+
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
   set :sessions, true

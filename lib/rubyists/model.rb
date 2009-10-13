@@ -2,8 +2,6 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-aggregates'
 
-DataMapper.setup :default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists")
-
 class Country
   include DataMapper::Resource
   
@@ -103,8 +101,5 @@ end
 #  end
 #end
 
-DataMapper.auto_migrate!
-
-Country.populate
 #Member.seed
 #UserGroup.seed

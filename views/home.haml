@@ -10,7 +10,7 @@
     %input{ :id => 'openid_identifier', :class => 'openid_url_input', :type => 'text', :name => 'openid_url' }
 - else
   %p{ :id => 'login' }
-    Logged in as #{ session[:openid_identity] }
+    &= "Logged in as #{ session[:openid_identity] }"
     %br
     %a{ :href => '/logout' } Log out
 #map

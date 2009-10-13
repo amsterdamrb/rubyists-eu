@@ -7,7 +7,7 @@ describe Country do
     end
     
     it "should have no data." do
-      Country.all.should be_empty
+      Country.should be_none
     end
     
     it "should allow to save a new country with a defined 2-letter uppercased code and a name." do

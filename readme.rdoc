@@ -22,6 +22,11 @@ Check http://installed-gems.heroku.com for a list of gems that are installed on 
 * json 1.1.4
 * ruby-openid 2.1.7
 
+For development, we use the following additional gems:
+
+* rspec
+* rack-test
+
 == Todo
 
 See the issue tracker http://github.com/rubyists-eu/rubyists-eu/issues

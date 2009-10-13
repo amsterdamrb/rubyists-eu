@@ -18,6 +18,7 @@ configure do
 end
 
 get '/' do
+  @flash = session.delete(:flash)
   haml :home
 end
 
@@ -29,8 +30,7 @@ get '/styles/:file' do
 end
 
 get '/ajax/user_groups.js' do
-  #user_groups = UserGroup.all
-  #user_groups.to_json
+  Group.all.to_json
 end
 
 post '/login' do
@@ -88,13 +88,10 @@ get '/groups/new' do
 end
 
 post '/groups' do
-  @flash = "Added #{params[:name]}"
-  haml :home
-  # group = Group.new
-  # group.name = params[:name]
-  # group.city = params[:city]
-  # group.country = params[:country]
-  # if group.save
-  #   @flash = "Created new group:"
-  # end
+  group = Group.new
+  group.name = params[:name]
+  group.city = params[:city]
+  group.country = params[:country]
+  session[:flash] = "Added #{params[:name]}" if group.save
+  redirect '/'
 end

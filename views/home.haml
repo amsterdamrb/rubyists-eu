@@ -3,7 +3,7 @@
   - if ! session[:openid_identity]
     %form{:id => 'login', :name => 'login_openid', :action => '/login', :method => 'POST' }
       OpenID:
-      %input{ :id => 'openid_identifier', :class => 'openid_url_input', :type => 'text', :name => 'openid_url' }
+      %input{ :id => 'openid_identifier', :class => 'openid_url_input', :type => 'text', :name => 'openid_url', :size => 18}
       %input{ :id => 'openid_login', :type => 'submit', :value => 'Login'}
   - else
     #logout
@@ -11,7 +11,7 @@
         %input{ :id => 'openid_logout', :type => 'submit', :value => 'Log out'}
       &= session[:openid_identity]
 %form{:action=>"#", :onsubmit=>'showAddress(this.address.value); return false', :id=>'search'}
-  %input{:type=>'text', :name=>'address'}
+  %input{:type=>'text', :name=>'address', :size => 15}
   %input{:type=>'submit', :value=>'Search'}
 #map
 
@@ -31,7 +31,4 @@
         addUserGroupMarker(user_group['name'], user_group['city'], user_group['country']);
       })
     })
-  });
-  $("#flash").ready(function(){
-    $("#flash").fadeOut(5000)
   });

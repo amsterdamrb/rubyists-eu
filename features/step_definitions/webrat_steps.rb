@@ -1,15 +1,19 @@
 When /^I view the home page$/ do
-  pending
+  get '/'
 end
 
-When /^I click "([^\"]*)"$/ do |arg1|
-  pending
+When /^I click "([^\"]*)"$/ do |link|
+  click_link link
 end
 
-When /^I enter "([^\"]*)" as "([^\"]*)"$/ do |arg1, arg2|
-  pending
+When /^I click the button "([^\"]*)"$/ do |name|
+  click_button name
 end
 
-Then /^I should see "([^\"]*)"$/ do |arg1|
-  pending
+When /^I enter "([^\"]*)" as "([^\"]*)"$/ do |value, field|
+  fill_in field, :with => value
+end
+
+Then /^I should see "([^\"]*)"$/ do |text|
+  last_response.should contain(text)
 end

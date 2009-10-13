@@ -14,6 +14,11 @@
   %input{:type=>'text', :name=>'address'}
   %input{:type=>'submit', :value=>'Search'}
 #map
+
+#menu
+  %ul
+    %li
+      %a{:href=> '/groups/new'} add group
 #content
   %p Europe has a lot of local Ruby user groups, but you can't easily find them unless you know what you are looking for.
   %p This also means that when you organize an interesting event somewhere, there is no easy way to get it under the attention of Europe's Rubyists.
@@ -26,4 +31,7 @@
         addUserGroupMarker(user_group['name'], user_group['city'], user_group['country']);
       })
     })
-  })
+  });
+  $("#flash").ready(function(){
+    $("#flash").fadeOut(5000)
+  });

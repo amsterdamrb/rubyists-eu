@@ -1,7 +1,20 @@
 html, body
   :padding 0
   :margin 0
-#title, #search, #content
+#page
+  :position relative
+  :width 100%
+#flash
+  :position absolute
+  :top 0
+  :left 0
+  :right 0
+  :z-index 1000
+  :text-align center
+  :font-size 3em
+  :background green
+  :border-bottom 0.1em solid black
+#title, #search, #content, #menu
   :position absolute
   :z-index 999
   :background white
@@ -34,13 +47,45 @@ html, body
   :width 100%
   :height 100%
   :padding 0
+#menu
+  :width 20em
+  :height 2em
+  :top 8.5em
+  :left 5em
+  :margin 0
+  :padding-bottom 0
+  ul
+    :margin 0
+    :padding 0
+    li
+      :list-style none
+      :margin 0
+      :padding 0
+      a
+  
 #content
   :width 20em
   :max-height 25em
   :margin-bottom 1em
   :left 5em
-  :top 8.5em
+  :top= 8.5em + 3em + 1em
   :text-align justify
   :overflow auto
   p
     :margin-top 0
+#new_group
+  :margin 1em
+  .field
+    :clear both
+    :width 15em
+    :margin 0
+    :padding 0
+    label
+      :float left
+      :width 5em
+      :margin 0
+    input
+      :float right
+      :width 10em
+      :margin 0
+  input

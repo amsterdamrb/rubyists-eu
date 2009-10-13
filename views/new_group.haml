@@ -1,0 +1,6 @@
+%form{:action => '/groups', :method => :post, :id => 'new_group'}
+  - %w[name city country].each do |field|
+    .field
+      %label{:for => field}= field.capitalize + ":"
+      %input{:name => field, :type => 'text'}
+  %input{:type => 'submit', :value => 'add group'}

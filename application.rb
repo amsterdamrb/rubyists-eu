@@ -82,3 +82,19 @@ get '/check' do
     "please log in"
   end
 end
+
+get '/groups/new' do
+  haml :new_group
+end
+
+post '/groups' do
+  @flash = "Added #{params[:name]}"
+  haml :home
+  # group = Group.new
+  # group.name = params[:name]
+  # group.city = params[:city]
+  # group.country = params[:country]
+  # if group.save
+  #   @flash = "Created new group:"
+  # end
+end

@@ -3,6 +3,7 @@ app_file = File.join(File.dirname(__FILE__), '..', '..', 'application')
 require app_file
 require 'spec/expectations'
 require 'rack/test'
+require 'webrat'
 
 Sinatra::Application.app_file = app_file
 

@@ -11,6 +11,17 @@ The project is hosted by Heroku.
 * Write about your feature on the issue tracker
 * Send a pull request for extra attention!
 
+== Dependencies
+
+Check http://installed-gems.heroku.com/ for a list of gems that are installed on Heroku by default. We use the following gems:
+
+* sinatra 0.9.4
+* haml 2.2.3
+* dm-core 0.9.11
+* dm-aggregates 0.9.11
+* json 1.1.4
+* ruby-openid 2.1.7
+
 == Todo
 
 See the issue tracker http://github.com/rubyists-eu/rubyists-eu/issues

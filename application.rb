@@ -1,80 +1,21 @@
+$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
+
 require 'sinatra'
 require 'haml'
 require 'sass'
 require 'openid'
 require 'openid/store/filesystem'
-require 'dm-core'
-require 'dm-aggregates'
 require 'json'
+require 'rubyists'
+
+DataMapper.setup :default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists")
+DataMapper.auto_migrate!
+Country.populate
 
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
   set :sessions, true
 end
-
-DataMapper.setup(:default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists"))
-
-class Member
-  include DataMapper::Resource
-
-  property :id, Serial
-  property :openid, String
-  property :name, String
-  property :city, String
-  property :country, String
-
-  def self.seed
-    return if count > 0
-    member = new
-
-    member.openid = "Hola"
-    member.name = "Javier Cicchelli"
-    member.city = "Buenos Aires"
-    member.country = "Argentina"
-
-    member.save
-  end
-end
-
-class UserGroup
-  include DataMapper::Resource
-
-  property :id, Serial
-  property :name, String
-  property :city, String
-  property :country, String
-
-  def self.seed
-    {
-      'Amsterdam.rb' => {:city => 'Amsterdam', :country => 'The Netherlands'},
-      'Utrecht.rb' => {:city => 'Utrecht', :country => 'The Netherlands'},
-      'Den Haag.rb' => {:city => 'Den Haag', :country => 'The Netherlands'},
-    }.each do |name, attrs|
-      next if count(:name => name) > 0
-      ug = new
-
-      ug.name = name
-      ug.city = attrs[:city]
-      ug.country = attrs[:country]
-
-      ug.save
-    end
-  end
-
-  def to_json
-    attributes.to_json
-  end
-end
-
-class DataMapper::Collection
-  def to_json
-    to_a.to_json
-  end
-end
-
-DataMapper.auto_migrate!
-Member.seed
-UserGroup.seed
 
 get '/' do
   haml :home
@@ -88,8 +29,8 @@ get '/styles/:file' do
 end
 
 get '/ajax/user_groups.js' do
-  user_groups = UserGroup.all
-  user_groups.to_json
+  #user_groups = UserGroup.all
+  #user_groups.to_json
 end
 
 post '/login' do

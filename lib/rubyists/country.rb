@@ -20,5 +20,13 @@ class Country
         country.save
       end
     end
+
+    def destroy_all
+      all.each {|model| model.destroy}
+    end
+    
+    def none?
+      count == 0
+    end
   end
 end

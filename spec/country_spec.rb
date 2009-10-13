@@ -3,8 +3,7 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 describe Country do
   context "when the data model have been just defined" do
     before :each do
-      Country.all.each{|country| country.destroy} \
-        unless Country.all.empty?
+      Country.destroy_all unless Country.none?
     end
     
     it "should have no data." do
@@ -59,6 +58,19 @@ describe Country do
     it "should populate its possible values from a comma-separated file." do
       Country.populate
       Country.all.size.should > 0
+    end
+
+    it 'should be able to destroy all countries' do
+      Country.create(:code => 'NL', :name => "Netherlands")
+      Country.count.should == 1
+      Country.destroy_all
+      Country.count.should == 0
+    end
+    
+    it 'should know if there are no countries' do
+      Country.none?.should be_true
+      Country.create(:code => 'NL', :name => "Netherlands")
+      Country.none?.should be_false
     end
   end
 end

@@ -60,6 +60,5 @@ function showAddress(address) {
   var address = address;
   findAddress(address, function(point) {
     map.setCenter(point, 8);
-    placeMarker(point, address);
   });
 }

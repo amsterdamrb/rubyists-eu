@@ -1,5 +1,6 @@
 class User
   include DataMapper::Resource
+  extend Rubyists::Resource
   
   belongs_to :country
   

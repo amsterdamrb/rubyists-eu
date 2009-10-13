@@ -9,12 +9,11 @@ describe User do
     end
     
     before :each do
-      User.all.each{|user| user.destroy} \
-        unless User.all.empty?
+      User.destroy_all unless User.none?
     end
     
     it "should have no data" do
-      User.all.should be_empty
+      User.should be_none
     end
     
     it "should allow to save a new user with properly pieces of data." do
@@ -94,7 +93,7 @@ describe User do
         
         test_user.save
         
-        User.all.should be_empty
+        User.should be_none
       end
     end
   end

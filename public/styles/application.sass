@@ -1,7 +1,7 @@
 html, body
   :padding 0
   :margin 0
-#title, #search, #login, #content
+#title, #search, #content
   :position absolute
   :z-index 999
   :background white
@@ -13,17 +13,21 @@ html, body
   :top 1em
   :left 5em
   :width 20em
-  :height 3em
+  :height 5em
   :padding 0.5em
   h1
     :margin 0
+  #login
+    :position absolute
+    :bottom 0em
+  #logout
+    :position absolute
+    :bottom 1em
+    #logout_form
+      :display inline
 #search
   :right 1em
   :top 1em
-  :width 15em
-#login
-  :right 1em
-  :top 6em
   :width 15em
 #map
   :float right
@@ -35,7 +39,7 @@ html, body
   :max-height 25em
   :margin-bottom 1em
   :left 5em
-  :top 6.5em
+  :top 8.5em
   :text-align justify
   :overflow auto
   p

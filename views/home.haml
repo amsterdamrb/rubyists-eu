@@ -1,18 +1,18 @@
 #title
   %h1 Rubyists.eu
+  - if ! session[:openid_identity]
+    %form{:id => 'login', :name => 'login_openid', :action => '/login', :method => 'POST' }
+      OpenID:
+      %input{ :id => 'openid_identifier', :class => 'openid_url_input', :type => 'text', :name => 'openid_url' }
+      %input{ :id => 'openid_login', :type => 'submit', :value => 'Login'}
+  - else
+    #logout
+      %form{:id => 'logout_form', :name => 'logout_openid', :action => '/logout', :method => 'POST' }
+        %input{ :id => 'openid_logout', :type => 'submit', :value => 'Log out'}
+      &= session[:openid_identity]
 %form{:action=>"#", :onsubmit=>'showAddress(this.address.value); return false', :id=>'search'}
   %input{:type=>'text', :name=>'address'}
   %input{:type=>'submit', :value=>'Search'}
-- if ! session[:openid_identity]
-  %form{:id => 'login', :name => 'login_openid', :action => '/login', :method => 'POST' }
-    Log in with your OpenID
-    %br
-    %input{ :id => 'openid_identifier', :class => 'openid_url_input', :type => 'text', :name => 'openid_url' }
-- else
-  %p{ :id => 'login' }
-    &= "Logged in as #{ session[:openid_identity] }"
-    %br
-    %a{ :href => '/logout' } Log out
 #map
 #content
   %p Europe has a lot of local Ruby user groups, but you can't easily find them unless you know what you are looking for.

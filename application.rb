@@ -65,7 +65,7 @@ get '/login/complete' do
   end
 end
 
-get '/logout' do
+post '/logout' do
   if session[:openid_identity]
     session.delete :openid_identity
     'You have been logged out'

@@ -1,5 +1,6 @@
 class Country
   include DataMapper::Resource
+  extend Rubyists::Resource
   
   has 1, :user
   
@@ -19,14 +20,6 @@ class Country
 
         country.save
       end
-    end
-
-    def destroy_all
-      all.each {|model| model.destroy}
-    end
-    
-    def none?
-      count == 0
     end
   end
 end

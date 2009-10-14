@@ -6,7 +6,7 @@ The project is hosted by Heroku.
 
 == How to get involved
 
-* Fork the repo: http://github.com/rubyists-eu/rubyists-eu
+* Fork the repo: http://github.com/amsterdamrb/rubyists-eu
 * Write & commit a feature (see the issue tracker for inspiration)
 * Write about your feature on the issue tracker
 * Send a pull request for extra attention!
@@ -29,7 +29,7 @@ For development, we use the following additional gems:
 
 == Todo
 
-See the issue tracker http://github.com/rubyists-eu/rubyists-eu/issues
+See the issue tracker http://github.com/amsterdamrb/rubyists-eu/issues
 
 == Contributors
 

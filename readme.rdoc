@@ -36,4 +36,4 @@ See the issue tracker http://github.com/amsterdamrb/rubyists-eu/issues
 * Julio Javier Cicchelli [http://github.com/mr-rock]
 * Wes Oldenbeuving [http://github.com/Narnach]
 * Fernando Vezzosi [http://github.com/bucciarati]
-
+* Wijnand Wiersma [http://github.com/Wijnand]

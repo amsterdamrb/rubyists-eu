@@ -1,6 +1,0 @@
-sinatra 0.9.4
-haml 2.2.3
-dm-core 0.9.11
-dm-aggregates 0.9.11
-json 1.1.4
-ruby-openid 2.1.7

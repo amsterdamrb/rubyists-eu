@@ -1,7 +1,0 @@
-%form{:action => '/groups', :method => :post, :id => 'new_group'}
-  - %w[name city country].each do |field|
-    .field
-      %label{:for => field}= field.capitalize + ":"
-      %input{:name => field, :type => 'text'}
-  %input{:type => 'submit', :value => 'add group'}
-%p This project is still under construction, so the database will be deleted a couple of times before we go 'live'. You can add data, but don't expect it to last long.

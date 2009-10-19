@@ -1,39 +1,10 @@
-= Rubyists.eu
+Dear Rubyists from all around Europe,
 
-With http://rubyists.eu we aim to make all the Ruby User Groups in Europe visible using Google Maps and a simple Sinatra project. We want to know about all the meetups and events that happen on our continent, because we think we are missing out on way too much fun.
+I regret to inform you that the public repository of this project will be temporarily down due to internal restructuring. We will be back on-line in a couple of days with an improved website, a clear roadmap and a much better communication strategy. All these changes aim at enhancing the overall experience of all collaborators and to secure a bright future for our community project.
 
-The project is hosted by Heroku.
+I really would like to apologize for the inconvenience and the trouble I may cause. Hopefully, we will be joining our forces together this very week.
 
-== How to get involved
+Rock On!
+Javier.-
 
-* Fork the repo: http://github.com/amsterdamrb/rubyists-eu
-* Write & commit a feature (see the issue tracker for inspiration)
-* Write about your feature on the issue tracker
-* Send a pull request for extra attention!
-
-== Dependencies
-
-Check http://installed-gems.heroku.com for a list of gems that are installed on Heroku by default. We use the following gems:
-
-* sinatra 0.9.4
-* haml 2.2.3
-* dm-core 0.9.11
-* dm-aggregates 0.9.11
-* json 1.1.4
-* ruby-openid 2.1.7
-
-For development, we use the following additional gems:
-
-* rspec
-* rack-test
-
-== Todo
-
-See the issue tracker http://github.com/amsterdamrb/rubyists-eu/issues
-
-== Contributors
-
-* Julio Javier Cicchelli [http://github.com/mr-rock]
-* Wes Oldenbeuving [http://github.com/Narnach]
-* Fernando Vezzosi [http://github.com/bucciarati]
-* Wijnand Wiersma [http://github.com/Wijnand]
+G: http://github.com/mr-rock
